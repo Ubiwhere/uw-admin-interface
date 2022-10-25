@@ -35,5 +35,5 @@ class Command(BaseCommand):
                 call_command("loaddata", fixture_location)
             else:
                 self.stdout.write(
-                    f"Specified theme '{theme}' does not exist. Please check 'https://github.com/urbanplatform/ubp-admin-interface/core/fixtures' for available themes"
+                    f"Specified theme '{theme}' does not exist. Please check 'https://github.com/urbanplatform/ubp-admin-interface/admin_interface/fixtures' for available themes"
                 )
