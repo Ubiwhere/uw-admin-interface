@@ -57,4 +57,5 @@ target/
 screenshots
 TODO.txt
 
+.DS_Store
 .idea/
