@@ -28,12 +28,7 @@ class Command(BaseCommand):
         theme_url = f"https://github.com/urbanplatform/ubp-admin-interface/admin_interface/fixtures/{theme}.json"
         if Theme.objects.count() == 1 and Theme.objects.first().name == "Django":
             fixture_location = f"admin_interface/fixtures/{theme}.json"
-            if os.path.exists(fixture_location):
-                self.stdout.write(
-                    f"No admin theme named '{theme}'. Installing from {theme_url}!"
-                )
-                call_command("loaddata", fixture_location)
-            else:
-                self.stdout.write(
-                    f"Specified theme '{theme}' does not exist. Please check 'https://github.com/urbanplatform/ubp-admin-interface/admin_interface/fixtures' for available themes"
-                )
+            self.stdout.write(
+                f"No admin theme named '{theme}'. Installing from {theme_url}!"
+            )
+            call_command("loaddata", fixture_location)
