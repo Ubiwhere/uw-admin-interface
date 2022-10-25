@@ -33,7 +33,7 @@ class Command(BaseCommand):
             return
 
         theme_url = f"https://github.com/urbanplatform/ubp-admin-interface/admin_interface/fixtures/{theme}.json"
-        if not Theme.objects.filter(name__iexatct=theme).exists():
+        if not Theme.objects.filter(name__iexact=theme).exists():
             self.stdout.write(
                 f"No admin theme named '{theme}'. Installing from {theme_url}!"
             )
