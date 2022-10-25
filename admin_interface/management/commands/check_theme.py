@@ -2,10 +2,10 @@
 Custom django command to load an admin theme
 if no theme exists (first time)
 """
-import os
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
-
+import glob
+from pathlib import Path
 from admin_interface.models import Theme
 
 
@@ -24,11 +24,18 @@ class Command(BaseCommand):
         This theme is only loaded is the default theme "Django" is the only existing one.
         Availables themes are available inside "core/fixtures".
         """
+        available_themes = [
+            Path(p).stem for p in glob.glob("admin_interface/fixture/*.json")
+        ]
         theme = options["theme"]
+        if theme not in available_themes:
+            self.stdout.write(
+                f"No admin theme named '{theme}'. Available themes: {available_themes}"
+            )
+
         theme_url = f"https://github.com/urbanplatform/ubp-admin-interface/admin_interface/fixtures/{theme}.json"
         if Theme.objects.count() == 1 and Theme.objects.first().name == "Django":
-            fixture_location = f"admin_interface/fixtures/{theme}.json"
             self.stdout.write(
                 f"No admin theme named '{theme}'. Installing from {theme_url}!"
             )
-            call_command("loaddata", fixture_location)
+            call_command("loaddata", theme)
