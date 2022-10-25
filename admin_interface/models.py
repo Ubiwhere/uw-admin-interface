@@ -11,6 +11,14 @@ from admin_interface.cache import del_cached_active_theme
 from admin_interface.compat import FileExtensionValidator, force_str
 from admin_interface.compat import gettext_lazy as _
 
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
+
+static_storage = FileSystemStorage(
+    location=settings.STATIC_ROOT,
+    base_url="/",
+)
+
 
 @python_2_unicode_compatible
 class Theme(models.Model):
@@ -94,6 +102,7 @@ class Theme(models.Model):
         ],
         help_text=_("Leave blank to use the default Django logo"),
         verbose_name=_("logo"),
+        storage=static_storage,
     )
     logo_color = ColorField(
         blank=True,
