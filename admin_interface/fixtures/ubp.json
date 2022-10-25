@@ -7,7 +7,7 @@
             "title": "Urban Platform administration",
             "title_color": "#FFFFFF",
             "title_visible": true,
-            "logo": "/logos/ubp-white.svg",
+            "logo": "/static/logos/ubp-white.svg",
             "logo_color": "#FFFFFF",
             "logo_visible": true,
             "css_header_background_color": "#273140",
