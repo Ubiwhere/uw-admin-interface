@@ -8,9 +8,7 @@ from setuptools import find_packages, setup
 
 exec(open("admin_interface/version.py").read())
 
-github_url = "https://github.com/fabiocaccamo"
-sponsor_url = "https://github.com/sponsors/fabiocaccamo/"
-twitter_url = "https://twitter.com/fabiocaccamo"
+github_url = "https://github.com/Ubiwhere"
 package_name = "django-admin-interface"
 package_url = "{}/{}".format(github_url, package_name)
 package_path = os.path.abspath(os.path.dirname(__file__))
@@ -31,18 +29,16 @@ setup(
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
     include_package_data=True,
     version=__version__,
-    description="django-admin-interface is a modern responsive flat admin interface customizable by the admin itself.",
+    description="uw-admin-interface is a django admin theme customization tool with pre-defined themes for Ubiwhere",
     long_description=long_description,
     long_description_content_type=long_description_content_type,
-    author="Fabio Caccamo",
-    author_email="fabio.caccamo@gmail.com",
+    author="Diogo Silva",
+    author_email="diogosilv30@gmail.com",
     url=package_url,
     download_url="{}/archive/{}.tar.gz".format(package_url, __version__),
     project_urls={
         "Documentation": "{}#readme".format(package_url),
         "Issues": "{}/issues".format(package_url),
-        "Funding": sponsor_url,
-        "Twitter": twitter_url,
     },
     keywords=[
         "django",
