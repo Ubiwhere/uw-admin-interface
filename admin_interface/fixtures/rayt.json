@@ -2,7 +2,7 @@
     {
         "model": "admin_interface.theme",
         "fields": {
-            "name": "PAYT",
+            "name": "RAYT",
             "active": true,
             "title": "Smart RAYT administration",
             "title_color": "#FFFFFF",
