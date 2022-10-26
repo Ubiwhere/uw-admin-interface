@@ -24,7 +24,7 @@ class Command(BaseCommand):
         This theme is only loaded is the default theme "Django" is the only existing one.
         Availables themes are available inside "core/fixtures".
         """
-        available_themes = ["ubp"]
+        available_themes = ["ubp", "payt", "rayt"]
         theme = options["theme"]
         if theme not in available_themes:
             self.stdout.write(
